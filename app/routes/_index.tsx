@@ -1,5 +1,6 @@
 import * as React from "react";
 import type { V2_MetaFunction } from "@remix-run/deno";
+import { ChatInput } from "../components/ChatInput.tsx";
 
 export const meta: V2_MetaFunction = () => {
   return [
@@ -12,6 +13,8 @@ export default function Index() {
   return (
     <div className="mx-auto max-w-5xl mt-2 font-mono">
       <h1 className="text-3xl font-bold">Deno BBS</h1>
+      <p className="mb-4">You are free to speak as long as you respect others.</p>
+      <ChatInput />
     </div>
   );
 }
