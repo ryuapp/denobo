@@ -30,4 +30,3 @@ jobs:
         with:
           project: "fine-cow-56"
           entrypoint: "build/index.js" # 📝 Update the entrypoint
-          root: "."
