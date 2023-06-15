@@ -9,7 +9,10 @@ import { createPost, getPosts } from '../utils/db.server.ts'
 export const meta: V2_MetaFunction = () => {
   return [
     { title: 'Denobo' },
-    { name: 'description', content: 'Denobo means Deno board. A nostalgic simple internet bulletin board' },
+    {
+      name: 'description',
+      content: 'Denobo means Deno board. A nostalgic simple internet bulletin board',
+    },
   ]
 }
 
@@ -41,19 +44,17 @@ export default function Index() {
         {postList.map(
           (item: {
             key: number
-            value: {
-              id: number
-              name: string
-              body: string
-              createdAt: string
-            }
+            id: number
+            name: string
+            body: string
+            createdAt: string
           }) => (
             <ChatCard
-              key={item.key}
-              id={item.value.id}
-              name={item.value.name}
-              body={item.value.body}
-              createdAt={item.value.createdAt}
+              key={item.id}
+              id={item.id}
+              name={item.name}
+              body={item.body}
+              createdAt={item.createdAt}
             />
           ),
         )}

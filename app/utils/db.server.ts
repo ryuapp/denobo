@@ -2,21 +2,13 @@
 
 export const getPosts = async () => {
   const kv = await Deno.openKv()
-  const countKv = await kv.get(['count'])
-  let count = Number(countKv.value)
-  if (!count) {
-    await kv.set(['count'], 1)
-    return false
-  }
+  const entries = kv.list({ prefix: ['posts'] })
   const posts = []
-  let res
-  for (let i = count - 1; i > 0; i--) {
-    res = await kv.get(['posts', i])
-    posts.push(res)
+  for await (const entry of entries) {
+    posts.push(entry.value)
   }
-  return posts
+  return posts.reverse()
 }
-
 export const createPost = async (name: string, body: string) => {
   const kv = await Deno.openKv()
   const now = Date.now()
