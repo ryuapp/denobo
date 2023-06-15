@@ -2,9 +2,10 @@ import * as React from 'react'
 import { ActionArgs, ActionFunction, LoaderFunction, redirect } from '@remix-run/deno'
 import { useLoaderData } from '@remix-run/react'
 import type { V2_MetaFunction } from '@remix-run/deno'
-import { ChatInput } from '../components/ChatInput.tsx'
-import ChatCard from '../components/ChatCard.tsx'
 import { createPost, getPosts } from '../utils/db.server.ts'
+import ChatInput from '../components/ChatInput.tsx'
+import ChatCard from '../components/ChatCard.tsx'
+import Footer from '../components/Footer.tsx'
 
 export const meta: V2_MetaFunction = () => {
   return [
@@ -36,9 +37,15 @@ export default function Index() {
   return (
     <div className='mx-auto max-w-5xl mt-2 font-mono'>
       <h1 className='text-3xl font-bold'>Denobo</h1>
-      <p className='mb-4'>
-        You are free to speak as long as you respect others.
-      </p>
+      <div className='mb-4'>
+        <p>You are free to speak as long as you respect others.</p>
+        <a
+          href='https://github.com/ryuapp/denobo'
+          className='text-blue-500 font-bold hover:underline'
+        >
+          Source
+        </a>
+      </div>
       <ChatInput />
       <section className='grid grid-cols-1 gap-4 my-4'>
         {postList.map(
@@ -59,6 +66,7 @@ export default function Index() {
           ),
         )}
       </section>
+      <Footer />
     </div>
   )
 }

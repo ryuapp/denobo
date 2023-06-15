@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Form } from '@remix-run/react'
 
-export function ChatInput() {
+export default function ChatInput() {
   return (
     <Form method='post'>
       <label htmlFor='name' className='text-md'>Your name</label>
