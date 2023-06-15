@@ -5,7 +5,6 @@ export default function ChatCard({
   body,
   createdAt,
 }: {
-  key:number,
   id: number
   name: string;
   body: string;

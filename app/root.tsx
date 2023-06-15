@@ -8,6 +8,7 @@ import {
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/deno";
 import * as React from "react";
+/* @ts-ignore */
 import stylesheet from "./tailwind.css";
 
 export const links: LinksFunction = () => [

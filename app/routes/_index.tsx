@@ -1,10 +1,15 @@
 import * as React from 'react';
-import type { LoaderFunction } from '@remix-run/deno';
+import {
+  ActionArgs,
+  ActionFunction,
+  LoaderFunction,
+  redirect,
+} from '@remix-run/deno';
 import { useLoaderData } from '@remix-run/react';
 import type { V2_MetaFunction } from '@remix-run/deno';
 import { ChatInput } from '../components/ChatInput.tsx';
 import ChatCard from '../components/ChatCard.tsx';
-import { createChat, getPostList } from '../utils/db.server.ts';
+import { createPost, getPosts } from '../utils/db.server.ts';
 
 export const meta: V2_MetaFunction = () => {
   return [
@@ -14,8 +19,18 @@ export const meta: V2_MetaFunction = () => {
 };
 
 export const loader: LoaderFunction = async () => {
-  const postList = await getPostList();
+  const postList = await getPosts();
   return postList;
+};
+
+export const action: ActionFunction = async ({ request }: ActionArgs) => {
+  const data = await request.formData();
+  const name = data.get('name') ? data.get('name') : 'anonysaurs';
+  const body = data.get('body') ? data.get('body') : 'I like Deno🦕!';
+
+  await createPost(name, body);
+
+  return redirect('/');
 };
 
 export default function Index() {
@@ -28,14 +43,19 @@ export default function Index() {
       </p>
       <ChatInput />
       <ul className="grid grid-cols-1 gap-4 my-4">
-        {postList.map(
+      {postList.map(
           (item: {
-key: number;
-            value: { id: number,name: string; body: string; createdAt: string };
+            key: number;
+            value: {
+              id: number;
+              name: string;
+              body: string;
+              createdAt: string;
+            };
           }) => (
             <ChatCard
-              key = {item.key}
-              id = {item.value.id}
+              key={item.key}
+              id={item.value.id}
               name={item.value.name}
               body={item.value.body}
               createdAt={item.value.createdAt}
