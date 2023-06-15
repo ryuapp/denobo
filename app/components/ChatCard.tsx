@@ -1,18 +1,21 @@
 import * as React from "react";
 export default function ChatCard({
+  id,
   name,
   body,
   createdAt,
 }: {
+  key:number,
+  id: number
   name: string;
   body: string;
   createdAt: string;
 }) {
   return (
-    <li className="border-b">
-      <div className="flex justify-between mb-2">
+    <li id={String(id)} className="border-b">
+      <div className="md:flex justify-between mb-2">
         <div>{name}</div>
-        <time dateTime={createdAt}>{createdAt}</time>
+        <time className="text-sm text-gray-500" dateTime={new Date(createdAt).toString()}>{new Date(createdAt).toString()}</time>
       </div>
       <div>{body}</div>
     </li>
