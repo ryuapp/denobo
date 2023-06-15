@@ -1,23 +1,23 @@
-import * as React from 'react';
+import * as React from 'react'
 export default function ChatCard({
   id,
   name,
   body,
   createdAt,
 }: {
-  id: number;
-  name: string;
-  body: string;
-  createdAt: string;
+  id: number
+  name: string
+  body: string
+  createdAt: string
 }) {
   return (
-    <article id={String(id)} className="border-b">
-      <div className="md:flex justify-between mb-2">
-        <div className="flex">
-          <div>{String(id) + '.' +name}</div>
+    <article id={String(id)} className='border-b'>
+      <div className='md:flex justify-between mb-2'>
+        <div className='flex'>
+          <div>{String(id) + '.' + name}</div>
         </div>
         <time
-          className="text-xs md:text-sm text-gray-500"
+          className='text-xs md:text-sm text-gray-500'
           dateTime={new Date(createdAt).toString()}
         >
           {new Date(createdAt).toString()}
@@ -25,5 +25,5 @@ export default function ChatCard({
       </div>
       <div>{body}</div>
     </article>
-  );
+  )
 }
