@@ -8,8 +8,8 @@ import { createPost, getPosts } from '../utils/db.server.ts'
 
 export const meta: V2_MetaFunction = () => {
   return [
-    { title: 'Deno BBS' },
-    { name: 'description', content: 'Welcome to Remix!' },
+    { title: 'Denobo' },
+    { name: 'description', content: 'Denobo means Deno board. A nostalgic simple internet bulletin board' },
   ]
 }
 
@@ -32,7 +32,7 @@ export default function Index() {
   const postList = useLoaderData()
   return (
     <div className='mx-auto max-w-5xl mt-2 font-mono'>
-      <h1 className='text-3xl font-bold'>Deno BBS</h1>
+      <h1 className='text-3xl font-bold'>Denobo</h1>
       <p className='mb-4'>
         You are free to speak as long as you respect others.
       </p>
