@@ -42,7 +42,7 @@ export default function Index() {
         You are free to speak as long as you respect others.
       </p>
       <ChatInput />
-      <ul className="grid grid-cols-1 gap-4 my-4">
+      <section className="grid grid-cols-1 gap-4 my-4">
       {postList.map(
           (item: {
             key: number;
@@ -62,7 +62,7 @@ export default function Index() {
             />
           )
         )}
-      </ul>
+      </section>
     </div>
   );
 }
