@@ -1,17 +1,17 @@
-# Remix + Deno
+# Denobo
 
-Welcome to the Deno template for Remix! 🦕
-
-For more, check out the [Remix docs](https://remix.run/docs).
+Denobo means Deno board. A nostalgic simple internet bulletin board.\
+Denobo is made for [Deno KV hackathon](https://deno.com/blog/deno-kv-hackathon).
 
 ## Install
 
 ```sh
-npx create-remix@latest --template deno
+npm i
 ```
 
 ## Managing dependencies
 
+Denobo use [Remix](https://remix.run/).\
 Read about
 [how we recommend to manage dependencies for Remix projects using Deno](https://github.com/remix-run/remix/blob/main/decisions/0001-use-npm-to-manage-npm-dependencies-for-deno-projects.md).
 
