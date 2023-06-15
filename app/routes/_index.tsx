@@ -35,7 +35,7 @@ export const action: ActionFunction = async ({ request }: ActionArgs) => {
 export default function Index() {
   const postList = useLoaderData()
   return (
-    <div className='mx-auto max-w-5xl mt-2 font-mono'>
+    <div className='mx-auto max-w-5xl mt-2 font-mono px-2'>
       <h1 className='text-3xl font-bold'>Denobo</h1>
       <div className='mb-4'>
         <p>You are free to speak as long as you respect others.</p>
