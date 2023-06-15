@@ -1,5 +1,5 @@
 import * as React from "react";
-import ChatCard from './ChatCard.tsx';
+import ChatCard from "./ChatCard.tsx";
 
 export function ChatList() {
   return (
